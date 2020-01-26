@@ -35,6 +35,9 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+# added as default per L#16, Nomster, is at all necessary.
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3030 }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
