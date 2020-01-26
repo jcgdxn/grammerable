@@ -60,4 +60,9 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  #
+  #
+  #below enables user act as logged-in calling sign-in method inside our spec
+  config.include Devise::Test:ControllerHelpers, type: :controllers
+  config.include Devise::Test::ControllerHelpers, type: :view
 end
