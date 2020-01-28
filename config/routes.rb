@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
 
   root "grams#index"
-    resources :grams, only: [:new, :create]
+    resources :grams, only: [:new, :create, :show]
 end
