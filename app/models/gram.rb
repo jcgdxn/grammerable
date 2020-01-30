@@ -1,5 +1,5 @@
 class Gram < ApplicationRecord
   validates :message, presence: true
 
-  belong_to :user
+  belongs_to :user
 end

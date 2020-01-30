@@ -18,11 +18,11 @@ class GramsController < ApplicationController
     end
 
     @gram.update_attributes(gram_params)
-    if @gram.valid?
-      redirect_to root_path
-    else
-      return render :edit, status: :unprocessable_entity
-    end
+      if @gram.valid?
+        redirect_to root_path
+      else
+       return render :edit, status: :unprocessable_entity
+      end
   end
 
   def new
@@ -30,6 +30,7 @@ class GramsController < ApplicationController
   end
 
   def index
+    @grams = Gram.all
   end
 
   def show
@@ -66,5 +67,3 @@ private
     # render plain: 'Not Found :(', status: :not_found
     render plain: "#{status.to_s.titleize} :(", status: status
   end
-
-end
