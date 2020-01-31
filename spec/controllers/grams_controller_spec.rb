@@ -121,16 +121,16 @@ RSpec.describe GramsController, type: :controller do
                   get :show, params: { id: 'TACOCAT' }
                   expect(response).to have_http_status(:not_found)
                 end
-              end
+  end
 
-              describe "grams#index action" do
+  describe "grams#index action" do
                 it "Index Page created herein" do
                   get :index
                   expect(response).to have_http_status(:success)
                 end
-              end
+  end
 
-              describe "grams#new action" do
+  describe "grams#new action" do
                 it "should require users to be logged in" do
                   get :new
                   expect(response).to redirect_to new_user_session_path
@@ -148,7 +148,7 @@ RSpec.describe GramsController, type: :controller do
   describe "grams#create action" do
 
                 it "should require users to be logged in" do
-                post :create, params: { gram: { message: "Hello" } }
+                post :create, params: { gram: { message: 'Hello' } }
                 expect(response).to redirect_to new_user_session_path
                 end
 
@@ -156,11 +156,16 @@ RSpec.describe GramsController, type: :controller do
                   user = FactoryBot.create(:user)
                   sign_in user
 
-                  post :create, params: { gram: { message: 'Hello!' } }
+                  post :create, params: {
+                    gram: { 
+                    message: 'Hello!',
+                    picture: fixture_file_upload("/venus_.jpg", 'image/png')
+                     }
+                   }
                   expect(response).to redirect_to root_path
 
                   gram = Gram.last
-                  expect(gram.message).to eq("Hello!")
+                  expect(gram.message).to eq('Hello!')
                   expect(gram.user).to eq(user)
                 end
 

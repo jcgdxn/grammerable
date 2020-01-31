@@ -63,6 +63,8 @@ RSpec.configure do |config|
   #
   #
   #below enables user act as logged-in calling sign-in method inside our spec
-  config.include Devise::Test::ControllerHelpers, type: :controllers
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  include ActionDispatch::TestProcess
+
   config.include Devise::Test::ControllerHelpers, type: :view
 end
