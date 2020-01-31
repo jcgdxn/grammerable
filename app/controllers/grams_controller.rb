@@ -15,7 +15,7 @@ class GramsController < ApplicationController
     return render_not_found if @gram.blank?
     return render_not_found(:forbidden) if @gram.user != current_user
     # return render plain: 'Forbidden :(', status: :forbidden
-    end
+    # end
 
     @gram.update_attributes(gram_params)
       if @gram.valid?
@@ -67,3 +67,4 @@ private
     # render plain: 'Not Found :(', status: :not_found
     render plain: "#{status.to_s.titleize} :(", status: status
   end
+end
