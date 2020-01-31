@@ -27,7 +27,7 @@ class GramsController < ApplicationController
 
   def new
     @gram = Gram.new
-    
+
   end
 
   def index
@@ -66,8 +66,9 @@ private
     params.require(:gram).permit(:picture)
   end
 
-  def render_not_found(status=:not_found)
-    # render plain: 'Not Found :(', status: :not_found
-    render plain: "#{status.to_s.titleize} :(", status: status
-  end
+  # def render_not_found(status=:not_found)
+  #   # render plain: 'Not Found :(', status: :not_found
+  #   render plain: "#{status.to_s.titleize} :(", status: status
+  # end
+  # Add the method to app/controllers/application_controller.rb, so all the controllers in the application can use the method:
 end

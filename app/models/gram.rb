@@ -1,6 +1,7 @@
 class Gram < ApplicationRecord
   validates :message, presence: true
   validates :picture, presence: true
+  has_many :comments
 
 
   # class Gram < ActiveRecord::Base
