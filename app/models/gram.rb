@@ -3,10 +3,7 @@ class Gram < ApplicationRecord
   validates :picture, presence: true
   has_many :comments
 
-
-  # class Gram < ActiveRecord::Base
-    mount_uploader :picture, PictureUploader
-  # end
+  mount_uploader :picture, PictureUploader
 
   belongs_to :user
 

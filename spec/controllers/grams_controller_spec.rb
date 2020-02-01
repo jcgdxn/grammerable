@@ -124,7 +124,7 @@ RSpec.describe GramsController, type: :controller do
   end
 
   describe "grams#index action" do
-                it "Index Page created herein" do
+                it "should successfully show page" do
                   get :index
                   expect(response).to have_http_status(:success)
                 end
@@ -156,13 +156,13 @@ RSpec.describe GramsController, type: :controller do
                   user = FactoryBot.create(:user)
                   sign_in user
 
-                  post :create, params: {
-                    gram: { 
+                post :create, params: {
+                    gram: {
                     message: 'Hello!',
-                    picture: fixture_file_upload("/venus_.jpg", 'image/png')
+                    picture: fixture_file_upload("/picture.png", 'image/png')
                      }
                    }
-                  expect(response).to redirect_to root_path
+                expect(response).to redirect_to root_path
 
                   gram = Gram.last
                   expect(gram.message).to eq('Hello!')
